@@ -10,14 +10,11 @@
 </div> -->
 
 <script>
-  // Remove the const postId = 1; line
 
-// Retrieve the post ID from the URL
 const postId = window.location.pathname.split('/').pop();
 
-// Call the posts() function with the retrieved post ID
+
 posts(postId);
-console.log(postId);
 
   async function posts(id) {
     try {
@@ -32,7 +29,7 @@ console.log(postId);
               <!-- Post title -->
               <h1 class="fw-bolder mb-1">${post.title}</h1>
               <!-- Post meta content -->
-              <div class="text-muted fst-italic mb-2">Posted on ${post.authorID} by ${post.categoryID}</div>
+              <div class="text-muted fst-italic mb-2">Posted on ${post.created_at} by admin </div>
               <!-- Post categories -->
               <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
               <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
@@ -46,7 +43,7 @@ console.log(postId);
           </article>               
         `);
       }
-      console.log(response.data[postId-1]);
+      // console.log(response.data[postId-1]);
     } catch (error) {
       alert(error);
       console.log(error);

@@ -25,3 +25,6 @@ Route::get('/post/{id}', [PageController::class, 'singlePage']);
 
 
 Route::get('/postData', [PostController::class, 'allPosts']);
+Route::post('/comments', [PostController::class, 'comment']);
+Route::get('/getComments', [PostController::class, 'allComments']);
+Route::get('/firstComment', [PostController::class, 'firstComment']);

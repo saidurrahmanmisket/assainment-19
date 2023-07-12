@@ -25,6 +25,10 @@ class pageController extends Controller
             abort(404);
         }
     }
+
+    function comment() {
+        
+    }
     
 
 }
