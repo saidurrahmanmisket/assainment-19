@@ -20,5 +20,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/post', [PageController::class, 'homePage']);
 Route::get('/post/{id}', [PageController::class, 'singlePage']);
+
+
+
+
 Route::get('/postData', [PostController::class, 'allPosts']);
-Route::get('/postData/{id}', [PageController::class, 'getPost']);

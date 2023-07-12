@@ -10,16 +10,21 @@
 </div> -->
 
 <script>
-  const postId = 1; // Replace with the actual post ID
+  // Remove the const postId = 1; line
 
-  posts(postId);
+// Retrieve the post ID from the URL
+const postId = window.location.pathname.split('/').pop();
+
+// Call the posts() function with the retrieved post ID
+posts(postId);
+console.log(postId);
 
   async function posts(id) {
     try {
-      let url = `/postData/${id}`; // Modify the URL to include the post ID
+      let url = `/postData`;
       let response = await axios(url);
       if (200 === response.status) {
-        const post = response.data;
+        const post = response.data[postId-1];
         document.getElementById('singlePost').innerHTML = (`
           <article>
             <!-- Post header -->
@@ -33,7 +38,7 @@
               <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
             </header>
             <!-- Preview image figure -->
-            <figure class="mb-4"><img class="img-fluid rounded" src="${post.image}" alt="..." /></figure>
+            <figure class="mb-4"><img class="img-fluid rounded" src="${post.img}" alt="..." /></figure>
             <!-- Post content -->
             <section class="mb-5">
               ${post.description}
@@ -41,7 +46,7 @@
           </article>               
         `);
       }
-      console.log(response);
+      console.log(response.data[postId-1]);
     } catch (error) {
       alert(error);
       console.log(error);

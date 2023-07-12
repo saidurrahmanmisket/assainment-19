@@ -13,17 +13,18 @@ class pageController extends Controller
     }
 
     public function singlePage($id)
-{
-    // Retrieve the post by ID
-    $post = Post::find($id);
-
-    if ($post) {
-        // Pass the post data to the view
-        return view('pages.singlePage', compact('post'));
-    } else {
-        // Handle the case where the post is not found
-        abort(404);
+    {
+        // Retrieve the post by ID
+        $post = Post::find($id);
+    
+        if ($post) {
+            // Pass the post data to the view
+            return view('pages.singlePage', ['post' => $post]);
+        } else {
+            // Handle the case where the post is not found
+            abort(404);
+        }
     }
-}
+    
 
 }

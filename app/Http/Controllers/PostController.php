@@ -11,6 +11,6 @@ class PostController extends Controller
         return  Post::get();
       }
 
-   
+     
       
 }
